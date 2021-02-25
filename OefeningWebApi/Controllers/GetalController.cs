@@ -30,15 +30,18 @@ namespace OefeningWebApi.Controllers
             }
         }
 
+
+        // hier is iets vreemds gebeurd. Eerste keer dat ik dit deeltje demo'de gaf ik als argument een int getal ipv string getal, maar om 1 of andere reden heb ik er nu een string van moeten maken
+        // online is ook al aangegeven dat swagger geen int argumenten aanneemt
         [HttpPost ("nieuw")]
         public ActionResult NewGetal(int getal)
         {
             try
             {
                 string g = Convert.ToString(getal);
-
                 System.IO.File.WriteAllText("Getal.txt", g);
                 return Ok();
+
             } catch (Exception ex)
             {
                 return NotFound();
